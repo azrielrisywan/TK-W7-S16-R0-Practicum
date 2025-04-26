@@ -1,6 +1,7 @@
 public class MahasiswaLinkedList {
     private MahasiswaNode head;
 
+    // Menambahkan data mahasiswa ke akhir linked list
     public void tambahMahasiswa(String nim, String nama, int nilai) {
         long startTime = System.nanoTime();
 
@@ -19,6 +20,7 @@ public class MahasiswaLinkedList {
         System.out.println("Waktu tambah: " + (endTime - startTime) + " ns");
     }
 
+    // Menghapus data mahasiswa berdasarkan NIM
     public void hapusMahasiswa(String nim) {
         long startTime = System.nanoTime();
 
@@ -28,14 +30,14 @@ public class MahasiswaLinkedList {
         }
 
         if (head.getNim().equals(nim)) {
-            head = head.next;
+            head = head.next; // Hapus head jika NIM cocok
         } else {
             MahasiswaNode current = head;
             while (current.next != null && !current.next.getNim().equals(nim)) {
                 current = current.next;
             }
             if (current.next != null) {
-                current.next = current.next.next;
+                current.next = current.next.next; // Lewati node yang dihapus
             } else {
                 System.out.println("Mahasiswa dengan NIM tersebut tidak ditemukan.");
             }
@@ -45,13 +47,14 @@ public class MahasiswaLinkedList {
         System.out.println("Waktu hapus: " + (endTime - startTime) + " ns");
     }
 
+    // Mengupdate nilai mahasiswa berdasarkan NIM
     public void updateNilai(String nim, int nilaiBaru) {
         long startTime = System.nanoTime();
 
         MahasiswaNode current = head;
         while (current != null) {
             if (current.getNim().equals(nim)) {
-                current.setNilai(nilaiBaru);
+                current.setNilai(nilaiBaru); // Update nilai
                 System.out.println("Nilai berhasil diupdate.");
                 break;
             }
@@ -66,6 +69,7 @@ public class MahasiswaLinkedList {
         System.out.println("Waktu update: " + (endTime - startTime) + " ns");
     }
 
+    // Menampilkan seluruh data mahasiswa
     public void tampilkanMahasiswa() {
         System.out.println("Daftar Mahasiswa:");
         MahasiswaNode current = head;

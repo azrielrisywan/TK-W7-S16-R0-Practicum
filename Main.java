@@ -2,10 +2,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        MahasiswaLinkedList daftar = new MahasiswaLinkedList();
+        Scanner scanner = new Scanner(System.in); // Inisialisasi linked list mahasiswa
+        MahasiswaLinkedList daftar = new MahasiswaLinkedList(); // Scanner untuk input pengguna
         int pilihan;
 
+        // Menu utama untuk program
         do {
             System.out.println("\n=== Menu Manajemen Mahasiswa ===");
             System.out.println("1. Tambah Mahasiswa");
@@ -19,6 +20,7 @@ public class Main {
 
             switch (pilihan) {
                 case 1:
+                    // Menambahkan mahasiswa baru
                     System.out.print("Masukkan NIM: ");
                     String nim = scanner.nextLine();
                     System.out.print("Masukkan Nama: ");
@@ -30,12 +32,14 @@ public class Main {
                     break;
 
                 case 2:
+                    // Menghapus mahasiswa berdasarkan NIM
                     System.out.print("Masukkan NIM mahasiswa yang akan dihapus: ");
                     String nimHapus = scanner.nextLine();
                     daftar.hapusMahasiswa(nimHapus);
                     break;
 
                 case 3:
+                    // Mengupdate nilai mahasiswa berdasarkan NIM
                     System.out.print("Masukkan NIM mahasiswa yang akan diupdate: ");
                     String nimUpdate = scanner.nextLine();
                     System.out.print("Masukkan nilai baru: ");
@@ -45,18 +49,21 @@ public class Main {
                     break;
 
                 case 4:
+                    // Menampilkan daftar mahasiswa
                     daftar.tampilkanMahasiswa();
                     break;
 
                 case 5:
+                    // Keluar dari program
                     System.out.println("Terima kasih telah menggunakan program ini.");
                     break;
 
                 default:
+                    // Invalid option
                     System.out.println("Pilihan tidak valid.");
             }
-        } while (pilihan != 5);
+        } while (pilihan != 5); // Ulangi sampai pengguna memilih keluar
 
-        scanner.close();
+        scanner.close(); // Menutup scanner
     }
 }
