@@ -250,32 +250,41 @@ class CustomLinkedListPerformance {
 
 // Main class
 public class CompareEfficiency {
-    public static void main(String[] args) {
-        int numItems = 10000;
-
-        // Stack Performance
-        System.out.println("Stack Performance:");
-        StackPerformance stackPerf = new StackPerformance(numItems);
-        stackPerf.measureAddPerformance();
-        stackPerf.measureProcessPerformance();
-
-        // Queue Performance
-        System.out.println("\nQueue Performance:");
-        QueuePerformance queuePerf = new QueuePerformance(numItems);
-        queuePerf.measureAddPerformance();
-        queuePerf.measureProcessPerformance();
-
-        // Custom LinkedList Performance
-        System.out.println("\nCustomLinkedList Performance:");
-        CustomLinkedListPerformance customLLPerf = new CustomLinkedListPerformance(numItems);
-        customLLPerf.measureAddPerformance();
-        customLLPerf.measureProcessPerformance();
-
-        // Search Performance
-        String searchNim = "S" + (numItems - 1);
-        System.out.println("\nSearch Performance (searching last item):");
-        stackPerf.measureSearchPerformance(searchNim);
-        queuePerf.measureSearchPerformance(searchNim);
-        customLLPerf.measureSearchPerformance(searchNim);
+    public static void main(String[] args) throws InterruptedException {
+      System.out.println("==============================================");
+      executeCompareEfficiency(0);
+      executeCompareEfficiency(10);
+      executeCompareEfficiency(100);
+      executeCompareEfficiency(1000);
+      executeCompareEfficiency(10000);
+      executeCompareEfficiency(100000);
+      executeCompareEfficiency(1000000);
     }
+
+  private static void executeCompareEfficiency(int numItems) {
+    // Stack Performance
+    System.out.println("Stack Performance:");
+    StackPerformance stackPerf = new StackPerformance(numItems);
+    stackPerf.measureAddPerformance();
+    stackPerf.measureProcessPerformance();
+
+    // Queue Performance
+    System.out.println("\nQueue Performance:");
+    QueuePerformance queuePerf = new QueuePerformance(numItems);
+    queuePerf.measureAddPerformance();
+    queuePerf.measureProcessPerformance();
+
+    // Custom LinkedList Performance
+    System.out.println("\nCustomLinkedList Performance:");
+    CustomLinkedListPerformance customLLPerf = new CustomLinkedListPerformance(numItems);
+    customLLPerf.measureAddPerformance();
+    customLLPerf.measureProcessPerformance();
+
+    // Search Performance
+    String searchNim = "S" + (numItems - 1);
+    System.out.println("\nSearch Performance (searching last item):");
+    stackPerf.measureSearchPerformance(searchNim);
+    queuePerf.measureSearchPerformance(searchNim);
+    customLLPerf.measureSearchPerformance(searchNim);
+  }
 }

@@ -7,9 +7,9 @@ public class CustomerServiceQueue {
         Queue<String> customerQueue = new LinkedList<>();
         
         // Menambahkan beberapa pelanggan awal ke dalam antrean
-        customerQueue.add("Andi");
-        customerQueue.add("Budi");
-        customerQueue.add("Siti");
+        customerQueue.offer("Andi");
+        customerQueue.offer("Budi");
+        customerQueue.offer("Siti");
         
         // Menampilkan daftar pelanggan dalam antrean
         System.out.println("Pelanggan dalam antrean:");
